@@ -60,7 +60,6 @@
          opts   {:api-key           api-key
                  :api-endpoint      api-endpoint
                  :impl              (keyword impl)}]
-     (println :prompt prompt)
      (spit "/tmp/prompt.txt" prompt)
      (if (= model cgpt)
        (create-chat prompt params opts)
