@@ -37,6 +37,7 @@
   be passed to `complete-chat`"
   ([prompt] (complete prompt nil))
   ([prompt {:keys [impl api-key
+                   api-endpoint
                    model temperature max-tokens n top-p
                    presence-penalty frequence-penalty]
             :or   {impl              :openai
@@ -56,7 +57,8 @@
                  :n                 n
                  :top_p             top-p
                  :prompt            prompt}
-         opts   {:api-key api-key
+         opts   {:api-key           api-key
+                 :api-endpoint      api-endpoint
                  :impl              (keyword impl)}]
      (println :prompt prompt)
      (spit "/tmp/prompt.txt" prompt)
